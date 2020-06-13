@@ -2,7 +2,9 @@
 * 3. FCC Mongo & Mongoose Challenges
 * ==================================
 ***********************************************/
-
+require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+  console.log('addr: '+add);
+})
 /** # MONGOOSE SETUP #
 /*  ================== */
 
