@@ -20,7 +20,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
 mongoose.connect(uri, { useNewUrlParse: true, useUnifiedTopology: true });
-
+var Schema = mongoose.Schema;
 
 
 /** # SCHEMAS and MODELS #
@@ -47,8 +47,12 @@ mongoose.connect(uri, { useNewUrlParse: true, useUnifiedTopology: true });
 // `default` values. See the [mongoose docs](http://mongoosejs.com/docs/guide.html).
 
 // <Your code here >
-
-var Person /* = <Your Model> */
+var personSchema = new Schema({
+  name: String,
+  age: Number,
+  favoriteFoods: [String],
+})
+var Person = mongoose.model("Person",personSchema);
 
 // **Note**: Glitch is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
