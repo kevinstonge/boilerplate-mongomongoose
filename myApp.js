@@ -2,9 +2,10 @@
 * 3. FCC Mongo & Mongoose Challenges
 * ==================================
 ***********************************************/
-require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-  console.log('addr: '+add);
-})
+// require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+//   console.log('addr: '+add);
+// });
+require('dotenv').config();
 /** # MONGOOSE SETUP #
 /*  ================== */
 
@@ -15,6 +16,10 @@ require('dns').lookup(require('os').hostname(), function (err, add, fam) {
 // as MONGO_URI. Connect to the database using the following syntax:
 //
 // mongoose.connect(<Your URI>, { useNewUrlParser: true, useUnifiedTopology: true }); 
+
+const mongoose = require('mongoose');
+const uri = process.env.MONGO_URI;
+mongoose.connect(uri, { useNewUrlParse: true, useUnifiedTopology: true });
 
 
 
