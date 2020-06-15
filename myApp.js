@@ -2,9 +2,9 @@
 * 3. FCC Mongo & Mongoose Challenges
 * ==================================
 ***********************************************/
-// require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-//   console.log('addr: '+add);
-// });
+require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+  console.log('addr: '+add);
+});
 require('dotenv').config();
 /** # MONGOOSE SETUP #
 /*  ================== */
@@ -19,7 +19,8 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
-mongoose.connect(uri, { useNewUrlParse: true, useUnifiedTopology: true });
+console.log(uri);
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const Schema = mongoose.Schema;
 
 
@@ -75,6 +76,7 @@ const Person = mongoose.model("Person",personSchema);
 
 /** 3) Create and Save a Person */
 const person = new Person({name: "Bob", age: 27, favoriteFoods: ["lemonade","chicken wings"]});
+console.log(person);
 person.save((err,data)=>{
   if (err) throw err;
   console.log('person successfully saved.');
