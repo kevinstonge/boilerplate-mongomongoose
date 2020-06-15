@@ -75,12 +75,7 @@ const Person = mongoose.model("Person",personSchema);
 /*  ========================== */
 
 /** 3) Create and Save a Person */
-const person = new Person({name: "Bob", age: 27, favoriteFoods: ["lemonade","chicken wings"]});
-console.log(person);
-person.save((err,data)=>{
-  if (err) throw err;
-  console.log('person successfully saved.');
-});
+
 // Create a `document` instance using the `Person` constructor you build before.
 // Pass to the constructor an object having the fields `name`, `age`,
 // and `favoriteFoods`. Their types must be conformant to the ones in
@@ -96,9 +91,13 @@ person.save((err,data)=>{
 // });
 
 var createAndSavePerson = function(done) {
-  
-  done(null /*, data*/);
-
+  const person = new Person({name: "Bob", age: 27, favoriteFoods: ["lemonade","chicken wings"]});
+  console.log(person);
+  person.save((err,data)=>{
+    if (err) throw err;
+    console.log('person successfully saved.');
+  });
+  done(null,person); //what arguments go here?
 };
 
 /** 4) Create many People with `Model.create()` */
