@@ -130,7 +130,7 @@ var createManyPeople = function(arrayOfPeople, done) {
 // Use the function argument `personName` as search key.
 
 var findPeopleByName = function(personName, done) {
-  Person.find(personName,function(err,personName){
+  return Person.find(personName,function(err,personName){
     if (err) return done(err);
     console.log("found something");
     done(null,personName);
