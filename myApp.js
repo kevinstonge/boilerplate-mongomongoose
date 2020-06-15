@@ -94,10 +94,11 @@ var createAndSavePerson = function(done) {
   const person = new Person({name: "Bob", age: 27, favoriteFoods: ["lemonade","chicken wings"]});
   console.log(person);
   person.save((err,data)=>{
-    if (err) throw err;
+    if (err) return done(err);
     console.log('person successfully saved.');
+    done(null,data); //what arguments go here?
   });
-  done(null,data); //what arguments go here?
+  
 };
 
 /** 4) Create many People with `Model.create()` */
