@@ -97,7 +97,7 @@ var createAndSavePerson = function(done) {
     if (err) throw err;
     console.log('person successfully saved.');
   });
-  done(null,person); //what arguments go here?
+  done(null,data); //what arguments go here?
 };
 
 /** 4) Create many People with `Model.create()` */
