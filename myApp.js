@@ -74,7 +74,10 @@ var Person = mongoose.model("Person",personSchema);
 /*  ========================== */
 
 /** 3) Create and Save a Person */
-
+var person = new Person({name: "Bob", age: 27, favoriteFoods: ["lemonade","chicken wings"]});
+person.save(function(err,data) {
+  
+})
 // Create a `document` instance using the `Person` constructor you build before.
 // Pass to the constructor an object having the fields `name`, `age`,
 // and `favoriteFoods`. Their types must be conformant to the ones in
