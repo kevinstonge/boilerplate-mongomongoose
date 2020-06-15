@@ -96,9 +96,9 @@ var createAndSavePerson = function(done) {
   person.save((err,data)=>{
     if (err) return done(err);
     console.log('person successfully saved.');
-    done(null,data); //what arguments go here?
+    done(null,data);
   });
-  
+
 };
 
 /** 4) Create many People with `Model.create()` */
@@ -111,9 +111,11 @@ var createAndSavePerson = function(done) {
 // 'arrayOfPeople'.
 
 var createManyPeople = function(arrayOfPeople, done) {
-    
-    done(null/*, data*/);
-    
+    Person.create(arrayOfPeople,function(err,arrayOfPeople){
+      if (err) return done(err);
+      console.log("array of people created");
+      done(null,done);
+    });
 };
 
 /** # C[R]UD part II - READ #
