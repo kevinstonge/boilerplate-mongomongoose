@@ -20,7 +20,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
 mongoose.connect(uri, { useNewUrlParse: true, useUnifiedTopology: true });
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 
 /** # SCHEMAS and MODELS #
@@ -47,12 +47,12 @@ var Schema = mongoose.Schema;
 // `default` values. See the [mongoose docs](http://mongoosejs.com/docs/guide.html).
 
 // <Your code here >
-var personSchema = new Schema({
+const personSchema = new Schema({
   name: String,
   age: Number,
   favoriteFoods: [String],
 })
-var Person = mongoose.model("Person",personSchema);
+const Person = mongoose.model("Person",personSchema);
 
 // **Note**: Glitch is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
@@ -74,10 +74,11 @@ var Person = mongoose.model("Person",personSchema);
 /*  ========================== */
 
 /** 3) Create and Save a Person */
-var person = new Person({name: "Bob", age: 27, favoriteFoods: ["lemonade","chicken wings"]});
-person.save(function(err,data) {
-  
-})
+const person = new Person({name: "Bob", age: 27, favoriteFoods: ["lemonade","chicken wings"]});
+person.save((err,data)=>{
+  if (err) throw err;
+  console.log('person successfully saved.');
+});
 // Create a `document` instance using the `Person` constructor you build before.
 // Pass to the constructor an object having the fields `name`, `age`,
 // and `favoriteFoods`. Their types must be conformant to the ones in
