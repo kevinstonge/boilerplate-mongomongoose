@@ -137,7 +137,7 @@ var findPeopleByName = function(personName, done) {
   })
 };
 console.log("this is what Person.find found:");
-console.log(findPeopleByName);
+console.log(findPeopleByName("Bob",()=>{console.log('callback')}));
 
 /** 6) Use `Model.findOne()` */
 
